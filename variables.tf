@@ -57,5 +57,4 @@ variable "kms_key_alias" {
 variable "allowed_ip_cidr_blocks" {
   description = "CIDR blocks allowed to access Vault (e.g. your office/public IP)"
   type        = list(string)
-  default     = ["0.0.0.0/0"]
 }
