@@ -24,8 +24,7 @@ variable "instance_type" {
 
 variable "key_name" {
   description = "SSH key name for EC2 access"
-  type        = string
-  default     = "vault-test-server"
+  default     = vault-test-server
 }
 
 variable "vault_instance_count" {
