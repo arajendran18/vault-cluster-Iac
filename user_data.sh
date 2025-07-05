@@ -18,7 +18,7 @@ listener "tcp" {
 }
 
 seal "awskms" {
-  region     = "us-east-1"
+  region     = "ap-south-1"
   kms_key_id = "1d40b459-6ceb-4a39-84ba-13de08c97e11"
 }
 
