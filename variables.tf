@@ -7,6 +7,7 @@ variable "region" {
 variable "vpc_id" {
   description = "VPC where the resources will be deployed"
   type        = string
+  default     = "vpc-0115151ae79085445"
 }
 
 # ---------- EC2 ----------
@@ -24,11 +25,7 @@ variable "instance_type" {
 variable "key_name" {
   description = "SSH key name for EC2 access"
   type        = string
-}
-
-variable "private_subnet_ids" {
-  description = "List of private subnet IDs for EC2 instances"
-  type        = list(string)
+  default     = "vault-test-server"
 }
 
 variable "vault_instance_count" {
@@ -46,6 +43,7 @@ variable "allowed_ip_cidr_blocks" {
 variable "public_subnet_ids" {
   description = "List of public subnet IDs for Network Load Balancer"
   type        = list(string)
+  default     = ["subnet-0e2be7faaf7472165"]
 }
 
 # ---------- KMS ----------
@@ -57,4 +55,5 @@ variable "kms_key_alias" {
 variable "allowed_ip_cidr_blocks" {
   description = "CIDR blocks allowed to access Vault (e.g. your office/public IP)"
   type        = list(string)
+  default     = ["0.0.0.0/0"]
 }
