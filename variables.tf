@@ -37,8 +37,8 @@ variable "vault_instance_count" {
 variable "allowed_ip_cidr_blocks" {
   description = "CIDR blocks allowed to access Vault (e.g. your office/public IP)"
   type        = list(string)
+  default     = ["0.0.0.0/0"]
 }
-
 # ---------- Load Balancer ----------
 variable "public_subnet_ids" {
   description = "List of public subnet IDs for Network Load Balancer"
@@ -52,8 +52,3 @@ variable "kms_key_alias" {
   default     = "alias/vault-auto-unseal"
 }
 
-variable "allowed_ip_cidr_blocks" {
-  description = "CIDR blocks allowed to access Vault (e.g. your office/public IP)"
-  type        = list(string)
-  default     = ["0.0.0.0/0"]
-}
