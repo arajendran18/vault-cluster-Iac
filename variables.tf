@@ -34,11 +34,6 @@ variable "allowed_ip_cidr_blocks" {
   type        = list(string)
 }
 
-variable "public_subnet_ids" {
-  description = "List of public subnet IDs for Network Load Balancer and EC2"
-  type        = list(string)
-}
-
 variable "private_subnet_ids" {
   description = "List of private subnet IDs for EC2 placement"
   type        = list(string)
