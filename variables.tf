@@ -13,7 +13,7 @@ variable "vpc_id" {
 variable "ami_id" {
   description = "AMI ID for Vault EC2 instances (Ubuntu preferred)"
   type        = string
-  default     = ami-0f918f7e67a3323f0
+  default     = "ami-0f918f7e67a3323f0"
 }
 
 variable "instance_type" {
