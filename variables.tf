@@ -34,11 +34,6 @@ variable "allowed_ip_cidr_blocks" {
   type        = list(string)
 }
 
-variable "private_subnet_ids" {
-  description = "List of private subnet IDs for EC2 placement"
-  type        = list(string)
-}
-
 variable "kms_key_alias" {
   description = "Alias for the AWS KMS key used for Vault Auto Unseal"
   default     = "alias/vault-auto-unseal"
