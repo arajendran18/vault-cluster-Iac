@@ -44,6 +44,8 @@ seal "awskms" {
   kms_key_id = "alias/vault-auto-unseal-ajith"
 }
 
+disable_mlock = true
+
 api_addr = "http://$LOCAL_IP:8200"
 cluster_addr = "http://$LOCAL_IP:8201"
 ui = true
