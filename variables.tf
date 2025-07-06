@@ -29,11 +29,6 @@ variable "vault_instance_count" {
   default     = 3
 }
 
-variable "allowed_ip_cidr_blocks" {
-  description = "CIDR blocks allowed to access Vault (e.g. your office/public IP)"
-  type        = list(string)
-}
-
 variable "kms_key_alias" {
   description = "Alias for the AWS KMS key used for Vault Auto Unseal"
   default     = "alias/vault-auto-unseal"
