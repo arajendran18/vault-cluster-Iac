@@ -31,5 +31,5 @@ variable "vault_instance_count" {
 
 variable "kms_key_alias" {
   description = "Alias for the AWS KMS key used for Vault Auto Unseal"
-  default     = "alias/vault-auto-unseal-new"
+  default     = "alias/vault-auto-unseal"
 }
