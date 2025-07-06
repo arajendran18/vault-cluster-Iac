@@ -15,5 +15,6 @@ resource "aws_instance" "vault" {
 
   tags = {
     Name = "vault-${count.index + 1}"
+    VaultCluster  = "vault" 
   }
 }
