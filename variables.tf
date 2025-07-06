@@ -38,3 +38,8 @@ variable "kms_key_alias" {
   description = "Alias for the AWS KMS key used for Vault Auto Unseal"
   default     = "alias/vault-auto-unseal"
 }
+
+variable "public_subnet_ids" {
+  description = "List of public subnet IDs for the load balancer and EC2 instances"
+  type        = list(string)
+}
