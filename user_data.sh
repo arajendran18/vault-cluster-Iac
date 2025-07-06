@@ -23,11 +23,13 @@ TOKEN=$(curl -X PUT -s -H "X-aws-ec2-metadata-token-ttl-seconds: 21600" \
 LOCAL_IP=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" \
   http://169.254.169.254/latest/meta-data/local-ipv4)
 
+HOSTNAME=$(hostname)
+
 # Generate Vault config
 cat <<EOF > /etc/vault.d/config.hcl
 storage "raft" {
   path    = "/opt/vault/data"
-  node_id = "vault-\$(hostname)"
+  node_id = "vault-${HOSTNAME}"
 
   retry_join {
     auto_join = "provider=aws tag_key=VaultCluster tag_value=vault region=ap-south-1"
@@ -46,14 +48,14 @@ seal "awskms" {
 
 disable_mlock = true
 
-api_addr = "http://$LOCAL_IP:8200"
-cluster_addr = "http://$LOCAL_IP:8201"
+api_addr = "http://${LOCAL_IP}:8200"
+cluster_addr = "http://${LOCAL_IP}:8201"
 ui = true
 EOF
 
 chown -R vault:vault /etc/vault.d
 
-# Create systemd service
+# Create systemd service for Vault
 cat <<EOF > /etc/systemd/system/vault.service
 [Unit]
 Description=Vault
@@ -74,7 +76,7 @@ LimitNOFILE=65536
 WantedBy=multi-user.target
 EOF
 
-# Start Vault
+# Start Vault service
 systemctl daemon-reexec
 systemctl daemon-reload
 systemctl enable vault
