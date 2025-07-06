@@ -24,6 +24,12 @@ variable "key_name" {
   type        = string
 }
 
+variable "private_subnet_ids" {
+  description = "Private subnets (if used)"
+  type        = list(string)
+  default     = []
+}
+
 variable "vault_instance_count" {
   description = "Number of Vault EC2 nodes"
   default     = 3
