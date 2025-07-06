@@ -20,9 +20,15 @@ resource "aws_iam_role_policy" "vault_kms_policy" {
     Version = "2012-10-17",
     Statement = [
       {
-        Effect   = "Allow",
-        Action   = ["kms:*"],
-        Resource = aws_kms_key.vault_unseal.arn
+        Sid    = "VaultKMSUnsealPermissions",
+        Effect = "Allow",
+        Action = [
+          "kms:Decrypt",
+          "kms:Encrypt",
+          "kms:DescribeKey",
+          "kms:GenerateDataKey"
+        ],
+        Resource = "arn:aws:kms:ap-south-1:058264471863:key/1d40b459-6ceb-4a39-84ba-13de08c97e11"
       }
     ]
   })
