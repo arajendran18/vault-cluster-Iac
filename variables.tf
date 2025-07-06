@@ -41,5 +41,5 @@ variable "kms_key_alias" {
 
 variable "public_subnet_ids" {
   description = "List of public subnet IDs for the load balancer and EC2 instances"
-  type        = string
+  type        = list(string)
 }
