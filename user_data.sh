@@ -19,7 +19,7 @@ listener "tcp" {
 
 seal "awskms" {
   region     = "ap-south-1"
-  kms_key_id = "1d40b459-6ceb-4a39-84ba-13de08c97e11"
+  kms_key_id = "alias/vault-auto-unseal-ajith"
 }
 
 api_addr = "http://\$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4):8200"
